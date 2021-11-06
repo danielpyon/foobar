@@ -1,0 +1,17 @@
+S(alpha, n) = sum from i=1 to n of floor(alpha * i)
+
+if alpha >= 2,
+	Let beta = alpha - 1.
+	S(beta, n) = S(alpha, n) - sum from i=1 to n of i
+	S(beta, n) = S(alpha, n) - n(n+1)/2
+	Therefore,
+		S(alpha, n) = n(n+1)/2 + S(alpha - 1, n)
+
+if 1 < alpha < 2:
+	Thm: if a^-1 + b^-1 = 1, then floor(a n) and floor(b n) partition positive integers
+	
+	So let b = 1/(1 - 1/a).
+
+	Let m = floor(a * n)
+	S(a, n) + S(b, floor(m / b)) = m(m+1)/2
+	

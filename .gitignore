@@ -1,0 +1,7 @@
+tmp/
+*.png
+refer.txt
+*.pyc
+*.class
+__pycache__/
+

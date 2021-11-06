@@ -1,0 +1,12 @@
+Let n=number of bunnies, r=number of bunnies required to open a door
+
+Any group of r-1 bunnies cannot open the door, since r are required to do so.
+However, adding 1 bunny to the group of r-1 will allow that group to open the door.
+This implies that the remaining bunnies each contain the same unique key that is missing from the group of r-1.
+
+So how many unique keys are there? The number of combinations of r-1 bunnies chosen from n bunnies, so choose(n, r-1).
+
+Additionally, there are n-(r-1) copies of each key, since for every group of r-1 bunnies, every other remaining bunny has the same, missing key.
+
+
+So how do we distribute the keys?

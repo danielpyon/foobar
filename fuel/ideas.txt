@@ -1,0 +1,57 @@
+- 3 operations
+	+, -, /
+	/ only if even
+- Find: shortest num of ops to get to 1 from n
+
+- Idea: Find the shortest path to a power of 2
+- Idea: Work backwards?
+
+f(10): 10 -> 5 -> 4 -> 2 -> 1
+f(15): 15 -> 16 -> 8 -> 4 -> 2 -> 1
+f(4) :  4 -> 2 -> 1
+
+f(60): 60 -> 30 -> 15 -> 16 -> 8 -> 4 -> 2 -> 1
+	   60 -> 61 -> 62 -> 63 -> 64 -> 32 -> 16 -> 8 -> 4 -> 2 -> 1
+
+1) let k = nearest power of 2 (may be >n or <n)
+2) if abs(k-n) < 
+
+- lemma: f(2^n) = n
+
+f(30): 30 -> 15 -> 16 : 2 + 4 = 6
+f(60): 60 -> 61 -> 62 -> 63 -> 64: 4 + 6 = 10
+f(60): 60 -> 30 -> 15 -> 16: 3 + 4 = 7
+f(60): 60 -> 30 -> 31 -> 32: 4 + 5 = 9
+
+if odd, pick (n+1) or (n-1) or (n+1)/2 or (n-1)/2 whichever is closest to a power of 2
+if even, keep dividing as long as the n/2 is closer to a power of 2 than n.
+
+f(15): 15 -> 16: 1 + 4 = 5
+f(10): 10 -> 5 -> 4: 2 + 2 = 4
+
+f(126): 126 -> 127 -> 128: 1 + 7 = 8
+f(126): 126 -> 63  -> 
+
+126 was 2 away from a power of two,
+but then 63 was 1 away from a power of two
+(126      = 2^n - 2,
+ 126 / 2  = 2^m - 1
+)
+
+claim: n/2 is closer to a power of 2 than n if n isn't already a power of 2
+therefore, always divide if n is even.
+
+if n is odd, either +1 or -1 depending on which one is closer to a power of 2
+
+f(126): 126 -> 63 -> 64: 2 + 6 = 8
+
+
+f(13): 13 -> 7 -> 8: 2 + 3 = 5
+13 -> 12 -> 6 -> 3 -> 2 -> 1
+
+f(100): 100 -> 50 -> 25 -> 24 -> 12 -> 6 -> 3 -> 2 -> 1
+16 - 12 = 4
+16 - 13 = 3
+
+27 + 1 ) / 2 = 14
+27 - 1 ) / 2 = 13

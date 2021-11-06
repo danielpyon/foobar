@@ -1,0 +1,10 @@
+Two key observations:
+
+f(a, b) = min(a, b) if abs(a - b) == 1
+
+Let a > b. Then,
+	i += a // b
+and
+	a = a - a // b
+	b doesn't change
+
